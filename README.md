@@ -7,6 +7,22 @@
 
 ---
 
+## 📑 Table of Contents
+
+- [🚀 Deployment](#-deployment)
+- [🖼️ Screenshots](#-screenshots)
+- [📖 Project Overview](#-project-overview)
+- [📂 Project Structure](#-project-structure)
+- [⚡ Features](#-features)
+- [🌍 Internationalization Example](#-internationalization-example)
+- [🌟 React & Next.js Features & Examples in This Project](#-react--nextjs-features--examples-in-this-project)
+  - [⚛️ React](#️-react)
+  - [⚡ Next.js](#-nextjs)
+- [🛠️ Getting Started](#️-getting-started)
+- [📜 License](#-license)
+
+---
+
 ## 🚀 Deployment
 
 The project is deployed on **Vercel**:
@@ -15,19 +31,19 @@ The project is deployed on **Vercel**:
 
 ---
 
-## 📑 Table of Contents
+## 🖼️ Screenshots
 
-- [My pet-project with using React.js and Next.js](#my-pet-project-with-using-reactjs-and-nextjs)
-  - [🚀 Deployment](#-deployment)
-  - [📖 Project Overview](#-project-overview)
-  - [📂 Project Structure](#-project-structure)
-  - [⚡ Features](#-features)
-  - [🌍 Internationalization Example](#-internationalization-example)
-  - [🌟 React & Next.js Features & Examples in This Project](#-react--nextjs-features--examples-in-this-project)
-    - [⚛️ React](#️-react)
-    - [⚡ Next.js](#-nextjs)
-  - [🛠️ Getting Started](#️-getting-started)
-  - [📜 License](#-license)
+### Home Page
+
+[![Home Page](/public/screenshots/home.png)](/public/screenshots/home.png)
+
+### Product Details
+
+[![Product Details](/public/screenshots/product-details.png)](/public/screenshots/product-details.png)
+
+### Cart Page
+
+[![Cart Page](/public/screenshots/cart.png)](/public/screenshots/cart.png)
 
 ---
 
