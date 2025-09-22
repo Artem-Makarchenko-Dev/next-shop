@@ -1,8 +1,9 @@
+import { clearToken } from "@/entities/auth/lib/persistAuth";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { AuthState, User } from "./authSlice.types";
 
 const initialState: AuthState = {
-  user: typeof window !== "undefined" ? JSON.parse(localStorage.getItem("user") || "null") : null,
+  user: null,
 };
 
 const authSlice = createSlice({
@@ -11,11 +12,10 @@ const authSlice = createSlice({
   reducers: {
     login(state, action: PayloadAction<User>) {
       state.user = action.payload;
-      localStorage.setItem("user", JSON.stringify(action.payload));
     },
     logout(state) {
       state.user = null;
-      localStorage.removeItem("user");
+      clearToken();
     },
   },
 });

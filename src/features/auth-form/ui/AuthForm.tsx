@@ -1,8 +1,12 @@
 "use client";
 
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
+import { useLoginMutation } from "@/entities/auth/mutations/useLoginMutation";
+import { useRegisterMutation } from "@/entities/auth/mutations/useRegisterMutation";
 import FieldInput from "@/shared/ui/FieldInput";
+import type { Route } from "next";
 import { useTranslations } from "next-intl";
+import { useRouter, useSearchParams } from "next/navigation";
 import { authFormReducer, initialAuthState } from "../model/authForm.reducer";
 import { ActionType, AuthFormMode, Field } from "../model/authForm.types";
 import { validateAuthForm } from "../model/authForm.validate";
@@ -14,6 +18,19 @@ interface AuthFormProps {
 export default function AuthForm({ mode }: AuthFormProps) {
   const [state, dispatch] = useReducer(authFormReducer, initialAuthState);
   const t = useTranslations("auth");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const loginMutation = useLoginMutation();
+  const registerMutation = useRegisterMutation();
+
+  const redirectTo: string = searchParams.get("redirectTo") || "/";
+
+  useEffect(() => {
+    if (loginMutation.isSuccess || registerMutation.isSuccess) {
+      router.push(redirectTo as Route);
+    }
+  }, [loginMutation.isSuccess, registerMutation.isSuccess, router, redirectTo]);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,9 +43,25 @@ export default function AuthForm({ mode }: AuthFormProps) {
       return;
     }
 
-    setTimeout(() => {
-      dispatch({ type: ActionType.SUBMIT_END });
-    }, 1200);
+    if (mode === "login") {
+      loginMutation.mutate(
+        { username: state.username || "", password: state.password },
+        {
+          onSettled: () => dispatch({ type: ActionType.SUBMIT_END }),
+        },
+      );
+    } else {
+      registerMutation.mutate(
+        {
+          email: state.email,
+          username: state.name || "User",
+          password: state.password,
+        },
+        {
+          onSettled: () => dispatch({ type: ActionType.SUBMIT_END }),
+        },
+      );
+    }
   };
 
   return (
@@ -43,17 +76,29 @@ export default function AuthForm({ mode }: AuthFormProps) {
         />
       )}
 
-      <FieldInput
-        label={t("form.email")}
-        placeholder={t("placeholders.email")}
-        value={state.email}
-        onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.EMAIL, value: v })}
-        error={state.errors[Field.EMAIL]}
-        type="email"
-      />
+      {mode === "login" ? (
+        <>
+          <FieldInput
+            label={`${t("form.username")} (mor_2314)`}
+            placeholder={t("placeholders.username")}
+            value={state.username || ""}
+            onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.USERNAME, value: v })}
+            error={state.errors[Field.USERNAME]}
+          />
+        </>
+      ) : (
+        <FieldInput
+          label={t("form.email")}
+          placeholder={t("placeholders.email")}
+          value={state.email}
+          onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.EMAIL, value: v })}
+          error={state.errors[Field.EMAIL]}
+          type="email"
+        />
+      )}
 
       <FieldInput
-        label={t("form.password")}
+        label={`${t("form.password")} ${mode === "login" && "(83r5^_)"}`}
         placeholder={t("placeholders.password")}
         value={state.password}
         onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.PASSWORD, value: v })}
@@ -63,10 +108,10 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
       <button
         type="submit"
-        disabled={state.loading}
+        disabled={state.loading || loginMutation.isPending || registerMutation.isPending}
         className="w-full px-6 py-3 bg-gray-900 text-white rounded-xl shadow hover:shadow-lg hover:bg-black transition cursor-pointer"
       >
-        {state.loading
+        {state.loading || loginMutation.isPending || registerMutation.isPending
           ? mode === "signup"
             ? t("actions.creating")
             : t("actions.signingIn")

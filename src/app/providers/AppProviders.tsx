@@ -1,6 +1,6 @@
 "use client";
 
-import CartPersistProvider from "@/app/providers/CartPersistProvider";
+import PersistProviders from "@/app/providers/PersistProviders";
 import { ThemeProvider } from "@/shared/context/theme/ThemeContext";
 import { queryClient } from "@/shared/lib/queryClient";
 import { store } from "@/store";
@@ -13,7 +13,7 @@ export default function AppProviders({ children }: { children: React.ReactNode }
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider>
-          <CartPersistProvider>{children}</CartPersistProvider>
+          <PersistProviders>{children}</PersistProviders>
           <ReactQueryDevtools initialIsOpen={false} />
         </ThemeProvider>
       </QueryClientProvider>

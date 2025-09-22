@@ -2,6 +2,8 @@
 
 import { useReducer } from "react";
 import FieldInput from "@/shared/ui/FieldInput";
+import { useAppDispatch } from "@/store/hooks";
+import { clearCart } from "@/store/slices/cart/cartSlice";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { getPaymentOptions } from "../model/checkoutForm.constants";
@@ -17,6 +19,7 @@ export function CheckoutForm() {
   const router = useRouter();
   const t = useTranslations("checkout");
   const paymentOptions = getPaymentOptions(t);
+  const reduxDispatch = useAppDispatch();
 
   const validate = (): СheckoutFormInitialState["errors"] => {
     const errors: СheckoutFormInitialState["errors"] = {};
@@ -39,14 +42,15 @@ export function CheckoutForm() {
     }
 
     setTimeout(() => {
-      router.push("/order-success");
       dispatch({ type: СheckoutFormActionType.RESET });
+      reduxDispatch(clearCart());
+      router.push("/order-success");
     }, 1000);
   };
 
   return (
     <form onSubmit={handleSubmit} className="bg-background rounded-2xl shadow-sm p-10 space-y-6">
-      <h1 className="text-4xl font-bold text-foreground-900 mb-2">{t("title")}</h1>
+      <h1 className="text-4xl font-bold text-foreground-900 mb-6">{t("title")}</h1>
 
       <FieldInput
         label={t("form.fullName")}
@@ -114,7 +118,7 @@ export function CheckoutForm() {
       <button
         type="submit"
         disabled={state.loading}
-        className="w-full px-6 py-4 bg-gray-900 text-white rounded-xl shadow hover:shadow-lg hover:bg-black transition disabled:opacity-50"
+        className="w-full px-6 py-4 bg-gray-900 text-white rounded-xl shadow hover:shadow-lg hover:bg-black transition disabled:opacity-50 cursor-pointer"
       >
         {state.loading ? t("actions.placingOrder") : t("actions.placeOrder")}
       </button>

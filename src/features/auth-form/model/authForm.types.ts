@@ -1,6 +1,7 @@
 export enum Field {
   NAME = "name",
   EMAIL = "email",
+  USERNAME = "username",
   PASSWORD = "password",
 }
 
@@ -15,6 +16,7 @@ export enum ActionType {
 export interface State {
   name?: string;
   email: string;
+  username?: string;
   password: string;
   loading: boolean;
   errors: Partial<Record<Field, string>>;

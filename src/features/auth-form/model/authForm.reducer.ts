@@ -4,6 +4,7 @@ export const initialAuthState: State = {
   name: "",
   email: "",
   password: "",
+  username: "",
   loading: false,
   errors: {},
 };

@@ -1,21 +1,22 @@
 import { AuthFormMode, Field, State } from "./authForm.types";
 
-export function validateAuthForm(
-  state: State,
-  mode: AuthFormMode,
-  t: (key: string) => string,
-): State["errors"] {
-  const errors: State["errors"] = {};
+export function validateAuthForm(state: State, mode: AuthFormMode, t: (key: string) => string) {
+  const errors: Partial<Record<Field, string>> = {};
 
-  if (mode === "signup" && !state.name?.trim()) {
-    errors[Field.NAME] = t("errors.required");
+  if (mode === "signup") {
+    if (!state.name) errors[Field.NAME] = t("errors.required");
+    if (!state.email) errors[Field.EMAIL] = t("errors.required");
+    else if (!/\S+@\S+\.\S+/.test(state.email)) {
+      errors[Field.EMAIL] = t("errors.invalidEmail");
+    }
   }
 
-  if (!state.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-    errors[Field.EMAIL] = t("errors.invalidEmail");
+  if (mode === "login") {
+    if (!state.username) errors[Field.USERNAME] = t("errors.required");
   }
 
-  if (state.password.length < 6) {
+  if (!state.password) errors[Field.PASSWORD] = t("errors.required");
+  else if (state.password.length < 6) {
     errors[Field.PASSWORD] = t("errors.shortPassword");
   }
 
