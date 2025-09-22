@@ -53,13 +53,9 @@ export function LocaleSwitcher() {
               key={lang.code}
               onClick={() => handleChange(lang.code)}
               className={`
-            block w-full text-left px-4 py-2 text-sm cursor-pointer
-            ${
-              current === lang.code
-                ? " dark:bg-gray-700 bg-gray-100 font-semibold"
-                : "dark:hover:bg-gray-700 hover:bg-gray-100"
-            }
-          `}
+                block w-full text-left px-4 py-2 text-sm cursor-pointer
+                ${current === lang.code && "font-semibold"}
+              `}
             >
               {lang.label}
             </button>
