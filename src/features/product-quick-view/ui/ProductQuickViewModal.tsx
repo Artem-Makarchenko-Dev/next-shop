@@ -1,6 +1,7 @@
 "use client";
 
 import { Product } from "@/entities/product/model/types";
+import { AddToCartIconButton } from "@/features/add-to-cart/ui/AddToCartIconButton/AddToCartIconButton";
 import Modal from "@/shared/ui/Modal";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -31,13 +32,16 @@ export function ProductQuickViewModal({ product, onClose }: ProductQuickViewModa
             <div className="text-lg font-semibold text-foreground-900">
               {t("labels.price")}: ${product.price}
             </div>
-            <Link
-              href={`/products/${product.id}`}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-gray-900 text-white px-4 py-2 rounded-lg shadow hover:bg-black hover:shadow-lg transition text-sm"
-            >
-              {t("actions.goToProduct")}
-            </Link>
+            <div className="flex items-center space-x-4">
+              <AddToCartIconButton product={product} />
+              <Link
+                href={`/products/${product.id}`}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-gray-900 text-white px-4 py-2 rounded-xl shadow hover:bg-black hover:shadow-lg transition text-sm h-10"
+              >
+                {t("actions.goToProduct")}
+              </Link>
+            </div>
           </div>
         </div>
       )}
