@@ -1,0 +1,35 @@
+{
+  "title": "Checkout",
+  "form": {
+    "fullName": "Full Name",
+    "email": "Email",
+    "address": "Address",
+    "city": "City",
+    "paymentMethod": "Payment Method",
+    "choose": "Choose..."
+  },
+  "payment": {
+    "card": "Credit Card",
+    "cod": "Cash on Delivery",
+    "paypal": "PayPal"
+  },
+  "errors": {
+    "required": "Required field",
+    "invalidEmail": "Invalid email address",
+    "chooseMethod": "Please choose a payment method"
+  },
+  "actions": {
+    "placeOrder": "Place Order",
+    "placingOrder": "Placing order..."
+  },
+  "summary": {
+    "title": "Order Summary",
+    "subtotal": "Subtotal",
+    "taxes": "Taxes (10%)",
+    "shipping": "Shipping",
+    "total": "Total"
+  },
+  "empty": {
+    "message": "Your cart is empty"
+  }
+}

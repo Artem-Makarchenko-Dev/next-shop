@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "Welcome to MyShop",
+    "imgAlt": "Shopping illustration",
+    "subtitle": "Discover minimalist products designed for comfort and style.",
+    "cta": "Shop Now"
+  },
+  "categories": {
+    "title": "Shop by category"
+  },
+  "featured": {
+    "title": "Featured Products"
+  },
+  "valueProps": {
+    "title": "Advantages",
+    "shipping": {
+      "title": "Free shipping",
+      "text": "On all orders over $50"
+    },
+    "support": {
+      "title": "24/7 Support",
+      "text": "We're always here to help"
+    },
+    "returns": {
+      "title": "Easy returns",
+      "text": "30-day money back guarantee"
+    }
+  },
+  "newsletter": {
+    "title": "Subscribe to our newsletter",
+    "description": "Get the latest updates and special offers",
+    "placeholder": "Your email",
+    "button": "Subscribe",
+    "success": "Thanks for subscribing!"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Order Declined",
+  "message": "Unfortunately, your order could not be processed. Please try again or contact our support team for assistance.",
+  "actions": {
+    "home": "Back to Home",
+    "retry": "Try Again"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "details": {
+    "category": "Категорія: {category}",
+    "price": "Ціна: ${price}",
+    "addToCart": "Додати в кошик"
+  },
+  "gallery": {
+    "title": "Зображення товару",
+    "thumbAlt": "Мініатюра {index}"
+  },
+  "reviews": {
+    "title": "Відгуки",
+    "empty": "Ще немає відгуків",
+    "count": "{count} відгуків",
+    "form": {
+      "name": "Ваше ім’я",
+      "message": "Ваш відгук",
+      "submit": "Надіслати відгук"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Головна",
+    "products": "Товари"
+  },
+  "related": {
+    "title": "Схожі товари"
+  }
+}

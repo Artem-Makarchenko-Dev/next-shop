@@ -1,0 +1,29 @@
+{
+  "title": "All Products",
+  "filters": {
+    "searchPlaceholder": "Search products...",
+    "sortNone": "Sort by price",
+    "sortAsc": "Price: Low to High",
+    "sortDesc": "Price: High to Low"
+  },
+  "chips": {
+    "search": "Search: {query}",
+    "category": "Category: {category}",
+    "sortAsc": "Sort: Low→High",
+    "sortDesc": "Sort: High→Low",
+    "clearAll": "Clear all"
+  },
+  "categoryOptions": {
+    "all": "All",
+    "electronics": "Electronics",
+    "jewelery": "Jewelery",
+    "men's clothing": "Men’s clothing",
+    "women's clothing": "Women’s clothing"
+  },
+  "actions": {
+    "goToProduct": "Go to product"
+  },
+  "labels": {
+    "price": "Price"
+  }
+}

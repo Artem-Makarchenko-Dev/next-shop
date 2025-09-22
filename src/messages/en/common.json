@@ -1,0 +1,30 @@
+{
+  "appName": "My Shop",
+  "nav": {
+    "products": "Products",
+    "about": "About",
+    "contact": "Contacts"
+  },
+  "header": {
+    "tooltip": "View Cart"
+  },
+  "footer": {
+    "tagline": "Your minimalist e-commerce store. Quality products, modern design.",
+    "shop": "Shop",
+    "support": "Support",
+    "follow": "Follow us",
+    "copyright": "© 2025 MyShop. All rights reserved."
+  },
+  "links": {
+    "products": "Products",
+    "about": "About",
+    "contact": "Contacts",
+    "shipping": "Shipping & Returns",
+    "faqs": "FAQs",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter"
+  }
+}

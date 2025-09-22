@@ -1,0 +1,29 @@
+{
+  "title": "Усі товари",
+  "filters": {
+    "searchPlaceholder": "Пошук товарів...",
+    "sortNone": "Сортувати за ціною",
+    "sortAsc": "Ціна: від нижчої",
+    "sortDesc": "Ціна: від вищої"
+  },
+  "chips": {
+    "search": "Пошук: {query}",
+    "category": "Категорія: {category}",
+    "sortAsc": "Сортування: від нижчої",
+    "sortDesc": "Сортування: від вищої",
+    "clearAll": "Скинути все"
+  },
+  "categoryOptions": {
+    "all": "Усі",
+    "electronics": "Електроніка",
+    "jewelery": "Ювелірні вироби",
+    "men's clothing": "Чоловічий одяг",
+    "women's clothing": "Жіночий одяг"
+  },
+  "actions": {
+    "goToProduct": "Перейти до товару"
+  },
+  "labels": {
+    "price": "Ціна"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "title": "Order Confirmed",
+  "message": "Thank you for your purchase! Your order has been successfully placed and is now being processed.",
+  "actions": {
+    "home": "Back to Home",
+    "continue": "Continue Shopping"
+  }
+}

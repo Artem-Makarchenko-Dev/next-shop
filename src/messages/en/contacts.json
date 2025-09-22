@@ -1,0 +1,21 @@
+{
+  "title": "Contact Us",
+  "getInTouch": "Get in touch",
+  "info": {
+    "address": "123 Main Street, Kyiv, Ukraine",
+    "phone": "+380 (00) 123 45 67",
+    "email": "support@myshop.com",
+    "hours": "Mon–Fri: 9:00 – 18:00"
+  },
+  "fields": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message"
+  },
+  "placeholders": {
+    "name": "John Doe",
+    "email": "you@example.com",
+    "message": "Write your message..."
+  },
+  "button": "Send Message"
+}

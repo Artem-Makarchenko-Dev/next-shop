@@ -1,0 +1,21 @@
+{
+  "title": "Зв'яжіться з нами",
+  "getInTouch": "Напишіть нам",
+  "info": {
+    "address": "123 Головна вулиця, Київ, Україна",
+    "phone": "+380 (00) 123 45 67",
+    "email": "support@myshop.com",
+    "hours": "Пн–Пт: 9:00 – 18:00"
+  },
+  "fields": {
+    "name": "Ім’я",
+    "email": "Електронна пошта",
+    "message": "Повідомлення"
+  },
+  "placeholders": {
+    "name": "Ваше ім’я",
+    "email": "you@example.com",
+    "message": "Ваше повідомлення..."
+  },
+  "button": "Надіслати"
+}

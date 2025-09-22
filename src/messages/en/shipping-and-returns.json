@@ -1,0 +1,9 @@
+{
+  "title": "Shipping & Returns",
+  "content": {
+    "shipping": "We ship orders within 2–4 business days. Delivery times depend on your region and the selected shipping method.",
+    "cost": "Shipping cost is calculated at checkout based on your location and order size.",
+    "returns": "You can return unused products within 30 days of delivery in their original packaging.",
+    "process": "To initiate a return, please contact our support team. Refunds are issued within 5–7 business days after receiving the returned product."
+  }
+}

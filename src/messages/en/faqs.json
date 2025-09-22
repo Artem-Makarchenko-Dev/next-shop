@@ -1,0 +1,21 @@
+{
+  "title": "Frequently Asked Questions",
+  "questions": {
+    "shipping": {
+      "q": "How long does shipping take?",
+      "a": "Shipping usually takes 5–7 business days depending on your location."
+    },
+    "returns": {
+      "q": "Can I return a product?",
+      "a": "Yes, we offer a 30-day return policy for unused products in their original packaging."
+    },
+    "payments": {
+      "q": "What payment methods do you accept?",
+      "a": "We accept credit cards, PayPal, and cash on delivery for selected regions."
+    },
+    "support": {
+      "q": "How can I contact support?",
+      "a": "You can reach our 24/7 support team via email or live chat on our website."
+    }
+  }
+}

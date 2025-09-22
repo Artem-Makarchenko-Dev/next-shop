@@ -1,0 +1,28 @@
+{
+  "details": {
+    "category": "Category: {category}",
+    "price": "Price: ${price}",
+    "addToCart": "Add to Cart"
+  },
+  "gallery": {
+    "title": "Зображення товару",
+    "thumbAlt": "Мініатюра {index}"
+  },
+  "reviews": {
+    "title": "Reviews",
+    "empty": "No reviews yet",
+    "count": "{count} reviews",
+    "form": {
+      "name": "Your name",
+      "message": "Your review",
+      "submit": "Submit Review"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "products": "Products"
+  },
+  "related": {
+    "title": "Related Products"
+  }
+}

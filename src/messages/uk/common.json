@@ -1,0 +1,30 @@
+{
+  "appName": "My Shop",
+  "nav": {
+    "products": "Товари",
+    "about": "О нас",
+    "contact": "Контакти"
+  },
+  "header": {
+    "tooltip": "Переглянути карту"
+  },
+  "footer": {
+    "tagline": "Ваш мінімалістичний інтернет-магазин. Якісні товари, сучасний дизайн.",
+    "shop": "Магазин",
+    "support": "Підтримка",
+    "follow": "Ми в соцмережах",
+    "copyright": "© 2025 MyShop. Усі права захищено."
+  },
+  "links": {
+    "products": "Товари",
+    "about": "Про нас",
+    "contact": "Контакти",
+    "shipping": "Доставка та повернення",
+    "faqs": "Поширені запитання",
+    "privacy": "Політика конфіденційності",
+    "terms": "Умови використання",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter"
+  }
+}

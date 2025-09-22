@@ -1,0 +1,19 @@
+{
+  "title": "Your Cart",
+  "empty": {
+    "message": "Your cart is empty",
+    "action": "Shop Now"
+  },
+  "summary": {
+    "subtotal": "Subtotal",
+    "taxes": "Taxes (10%)",
+    "shipping": "Shipping",
+    "total": "Total"
+  },
+  "actions": {
+    "checkout": "Proceed to Checkout",
+    "remove": "Remove",
+    "update": "Update"
+  },
+  "add": "Add to cart"
+}
