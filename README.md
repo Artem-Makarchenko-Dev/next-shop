@@ -12,7 +12,7 @@
 ## 🚀 Deployment
 
 The project is deployed on **Vercel**:  
-👉 [Live Demo](https://artem-makarchenko-next-shop.vercel.app/)
+[![Demo on Vercel](https://vercel.com/button)](https://artem-makarchenko-next-shop.vercel.app/)
 
 ---
 
