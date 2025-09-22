@@ -5,13 +5,12 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com/)
 
-**Demo:** 🔗 [next-shop on Vercel](https://artem-makarchenko-next-shop.vercel.app/)
-
 ---
 
 ## 🚀 Deployment
 
-The project is deployed on **Vercel**:  
+The project is deployed on **Vercel**:
+
 [![Demo on Vercel](https://vercel.com/button)](https://artem-makarchenko-next-shop.vercel.app/)
 
 ---
