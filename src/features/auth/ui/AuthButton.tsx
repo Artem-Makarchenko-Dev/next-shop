@@ -6,7 +6,7 @@ import { selectUser } from "@/store/slices/auth/authSlice.selectors";
 import { LogOut, User } from "lucide-react";
 import Link from "next/link";
 
-export default function UserLoginButton() {
+export default function AuthButton() {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
 

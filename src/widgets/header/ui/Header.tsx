@@ -1,6 +1,6 @@
 "use client";
 
-import UserLoginButton from "@/entities/user/ui/UserLoginButton";
+import AuthButton from "@/features/auth/ui/AuthButton";
 import { LocaleSwitcher } from "@/features/change-lang/ui/LocaleSwitcher";
 import { ThemeToggle } from "@/features/theme-toggle/ui/ThemeToggle";
 import { CartWidget } from "@/widgets/cart/ui/CartWidget";
@@ -24,7 +24,7 @@ export function Header() {
           <LocaleSwitcher />
           <ThemeToggle />
           <CartWidget />
-          <UserLoginButton />
+          <AuthButton />
         </div>
       </div>
     </header>

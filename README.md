@@ -120,7 +120,7 @@ return <button>{t("actions.checkout")}</button>;
 | ---------------------------------------- | ---------------------------------------------------------------- |
 | **JSX, Components, Props**               | `Header.tsx`, `ProductCard.tsx`                                  |
 | **Events (onClick, onChange, onSubmit)** | `AuthForm.tsx`, `CartItem.tsx`                                   |
-| **Conditional Rendering**                | `CartWidget.tsx`, `UserLoginButton.tsx`                          |
+| **Conditional Rendering**                | `CartWidget.tsx`, `AuthButton.tsx`                               |
 | **List Rendering**                       | `ProductsGrid.tsx`, `Footer.tsx`                                 |
 | **Fragments**                            | `ProductsPageClient.tsx`                                         |
 | **StrictMode**                           | `layout.tsx`                                                     |
