@@ -18,7 +18,7 @@ export function withLoading<P extends object>(Wrapped: ComponentType<P>) {
     }
 
     if (isError) {
-      return <p className="text-center mt-10 text-red-600">Failed to load data 💥</p>;
+      return <p className="text-center mt-10 text-red-600">Failed to load data</p>;
     }
 
     return <Wrapped {...(rest as P)} />;

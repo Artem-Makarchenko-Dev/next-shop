@@ -9,8 +9,8 @@ import {
   initialFilters,
   productFiltersReducer,
 } from "@/features/product-filters/modal/productFiltersReducer";
-import { FiltersActions } from "@/features/product-filters/productFilters.types";
-import ProductsPageFilters from "@/features/product-filters/ui/ProductFilters";
+import { FiltersActions, FiltersState } from "@/features/product-filters/productFilters.types";
+import ProductFilters from "@/features/product-filters/ui/ProductFilters";
 import { ProductQuickViewModal } from "@/features/product-quick-view/ui/ProductQuickViewModal";
 import { withLoading } from "@/shared/lib/withLoading";
 import { useTranslations } from "next-intl";
@@ -26,8 +26,13 @@ export default function ProductsPageClient() {
   const t = useTranslations("products");
 
   useEffect(() => {
-    const category = searchParams.get("category");
-    if (category) dispatch({ type: FiltersActions.SET_CATEGORY, payload: category });
+    const search = searchParams.get("search") || "";
+    const category = searchParams.get("category") || initialFilters.category;
+    const sort = (searchParams.get("sort") as FiltersState["sort"]) || initialFilters.sort;
+
+    dispatch({ type: FiltersActions.SET_SEARCH, payload: search });
+    dispatch({ type: FiltersActions.SET_CATEGORY, payload: category });
+    dispatch({ type: FiltersActions.SET_SORT, payload: sort });
   }, [searchParams]);
 
   const filtered = useMemo(() => filterProducts(products ?? [], filters), [products, filters]);
@@ -35,7 +40,7 @@ export default function ProductsPageClient() {
   return (
     <section className="max-w-6xl mx-auto px-6 py-14">
       <h1 className="text-4xl font-bold mb-10 text-foreground-900">{t("title")}</h1>
-      <ProductsPageFilters filters={filters} dispatch={dispatch} />
+      <ProductFilters filters={filters} dispatch={dispatch} />
       <ProductsGridWithLoading
         products={filtered ?? []}
         onSelect={setSelectedItem}

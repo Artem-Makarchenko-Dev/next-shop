@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo } from "react";
 import { useCategoriesQuery } from "@/entities/category/api/useCategoriesQuery";
+import { useUpdateQuery } from "@/shared/lib/useUpdateQuery";
 import { ErrorState } from "@/shared/ui/ErrorState";
 import { Loader } from "@/shared/ui/Loader";
 import { useTranslations } from "next-intl";
@@ -21,6 +22,7 @@ interface ProductFiltersFormProps {
 
 export default function ProductFiltersForm({ filters, dispatch }: ProductFiltersFormProps) {
   const t = useTranslations("products");
+  const updateQuery = useUpdateQuery();
 
   const {
     data: categoriesData,
@@ -43,22 +45,25 @@ export default function ProductFiltersForm({ filters, dispatch }: ProductFilters
   const handleSearch = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: FiltersActions.SET_SEARCH, payload: e.target.value });
+      updateQuery("search", e.target.value);
     },
-    [dispatch],
+    [dispatch, updateQuery],
   );
 
   const handleCategory = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       dispatch({ type: FiltersActions.SET_CATEGORY, payload: e.target.value });
+      updateQuery("category", e.target.value);
     },
-    [dispatch],
+    [dispatch, updateQuery],
   );
 
   const handleSort = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       dispatch({ type: FiltersActions.SET_SORT, payload: e.target.value as SortOptionType });
+      updateQuery("sort", e.target.value);
     },
-    [dispatch],
+    [dispatch, updateQuery],
   );
 
   if (catLoading) return <Loader />;
