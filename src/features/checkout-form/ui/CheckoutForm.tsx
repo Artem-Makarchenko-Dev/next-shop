@@ -1,6 +1,7 @@
 "use client";
 
 import { useReducer } from "react";
+import { showToast } from "@/shared/lib/showToast";
 import FieldInput from "@/shared/ui/FieldInput";
 import { useAppDispatch } from "@/store/hooks";
 import { clearCart } from "@/store/slices/cart/cartSlice";
@@ -18,6 +19,7 @@ export function CheckoutForm() {
   const [state, dispatch] = useReducer(checkoutFormReducer, initialState);
   const router = useRouter();
   const t = useTranslations("checkout");
+  const tCommon = useTranslations("common");
   const paymentOptions = getPaymentOptions(t);
   const reduxDispatch = useAppDispatch();
 
@@ -44,6 +46,7 @@ export function CheckoutForm() {
     setTimeout(() => {
       dispatch({ type: СheckoutFormActionType.RESET });
       reduxDispatch(clearCart());
+      showToast(tCommon("toasts.success"), "success");
       router.push("/order-success");
     }, 1000);
   };

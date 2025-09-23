@@ -1,3 +1,4 @@
+import ContsctsForm from "@/features/contacts-form/ui/ContsctsForm";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
@@ -40,47 +41,7 @@ export default async function ContactPage() {
           </div>
         </div>
 
-        <form className="bg-background rounded-2xl shadow-sm p-10 space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-foreground-700 mb-1">
-              {t("fields.name")}
-            </label>
-            <input
-              type="text"
-              placeholder={t("placeholders.name")}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-foreground-700 mb-1">
-              {t("fields.email")}
-            </label>
-            <input
-              type="email"
-              placeholder={t("placeholders.email")}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium text-foreground-700 mb-1">
-              {t("fields.message")}
-            </label>
-            <textarea
-              rows={5}
-              placeholder={t("placeholders.message")}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="px-6 py-3 bg-gray-900 text-white rounded-xl shadow hover:shadow-lg hover:bg-black transition cursor-pointer"
-          >
-            {t("button")}
-          </button>
-        </form>
+        <ContsctsForm />
       </div>
     </section>
   );

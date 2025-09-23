@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ReviewItemType } from "@/entities/review/model/types";
+import { showToast } from "@/shared/lib/showToast";
 import { useTranslations } from "next-intl";
 
 interface ReviewFormProps {
@@ -11,6 +12,7 @@ interface ReviewFormProps {
 export function ReviewForm({ onSubmit }: ReviewFormProps) {
   const [formState, setFormState] = useState<ReviewItemType>({ name: "", message: "" });
   const t = useTranslations("product.reviews.form");
+  const tCommon = useTranslations("common");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ export function ReviewForm({ onSubmit }: ReviewFormProps) {
     if (!formState.name.trim() || !formState.message.trim()) return;
 
     onSubmit(formState);
+    showToast(tCommon("toasts.success"), "success");
     setFormState({ name: "", message: "" });
   };
 
