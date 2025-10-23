@@ -2,24 +2,25 @@ export type Username = string;
 export type Password = string;
 
 export interface LoginPayload {
-  username: Username;
-  password: Password;
+  email: string;
+  password: string;
 }
 
 export interface LoginResponse {
-  token: string;
+  id: number;
+  name: string;
+  email: string;
 }
 
 export interface RegisterPayload {
   id?: number;
-  username: string;
+  name: string;
   email: string;
   password: string;
 }
 
 export interface RegisterResponse {
   id: number;
-  username: string;
+  name: string;
   email: string;
-  password: string;
 }

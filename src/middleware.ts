@@ -2,7 +2,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 export function middleware(req: NextRequest) {
-  const isLoggedIn = req.cookies.get("token");
+  const isLoggedIn = req.cookies.get("user");
 
   if (req.nextUrl.pathname.startsWith("/checkout") && !isLoggedIn) {
     const loginUrl = new URL("/auth/login", req.url);

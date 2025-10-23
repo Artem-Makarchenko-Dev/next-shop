@@ -1,4 +1,4 @@
-import { clearToken } from "@/entities/auth/lib/persistAuth";
+import { clearUser } from "@/entities/auth/lib/persistAuth";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { AuthState, User } from "./authSlice.types";
 
@@ -15,7 +15,7 @@ const authSlice = createSlice({
     },
     logout(state) {
       state.user = null;
-      clearToken();
+      clearUser();
     },
   },
 });

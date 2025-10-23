@@ -9,7 +9,6 @@ import { useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 import { authFormReducer, initialAuthState } from "../model/authForm.reducer";
 import { ActionType, AuthFormMode, Field } from "../model/authForm.types";
-import { validateAuthForm } from "../model/authForm.validate";
 
 interface AuthFormProps {
   mode: AuthFormMode;
@@ -36,16 +35,17 @@ export default function AuthForm({ mode }: AuthFormProps) {
     e.preventDefault();
     dispatch({ type: ActionType.SUBMIT_START });
 
-    const errors = validateAuthForm(state, mode, t);
-    if (Object.keys(errors).length) {
-      dispatch({ type: ActionType.SET_ERRORS, errors });
-      dispatch({ type: ActionType.SUBMIT_END });
-      return;
-    }
+    // const errors = validateAuthForm(state, mode, t);
+
+    // if (Object.keys(errors).length) {
+    //   dispatch({ type: ActionType.SET_ERRORS, errors });
+    //   dispatch({ type: ActionType.SUBMIT_END });
+    //   return;
+    // }
 
     if (mode === "login") {
       loginMutation.mutate(
-        { username: state.username || "", password: state.password },
+        { email: state.email, password: state.password },
         {
           onSettled: () => dispatch({ type: ActionType.SUBMIT_END }),
         },
@@ -54,7 +54,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
       registerMutation.mutate(
         {
           email: state.email,
-          username: state.name || "User",
+          name: state.name || "User",
           password: state.password,
         },
         {
@@ -76,26 +76,14 @@ export default function AuthForm({ mode }: AuthFormProps) {
         />
       )}
 
-      {mode === "login" ? (
-        <>
-          <FieldInput
-            label={`${t("form.username")} (mor_2314)`}
-            placeholder={t("placeholders.username")}
-            value={state.username || ""}
-            onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.USERNAME, value: v })}
-            error={state.errors[Field.USERNAME]}
-          />
-        </>
-      ) : (
-        <FieldInput
-          label={t("form.email")}
-          placeholder={t("placeholders.email")}
-          value={state.email}
-          onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.EMAIL, value: v })}
-          error={state.errors[Field.EMAIL]}
-          type="email"
-        />
-      )}
+      <FieldInput
+        label={t("form.email")}
+        placeholder={t("placeholders.email")}
+        value={state.email}
+        onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.EMAIL, value: v })}
+        error={state.errors[Field.EMAIL]}
+        type="email"
+      />
 
       <FieldInput
         label={`${t("form.password")} ${mode === "login" && "(83r5^_)"}`}
@@ -103,7 +91,6 @@ export default function AuthForm({ mode }: AuthFormProps) {
         value={state.password}
         onChange={(v) => dispatch({ type: ActionType.UPDATE, field: Field.PASSWORD, value: v })}
         error={state.errors[Field.PASSWORD]}
-        type="password"
       />
 
       <button

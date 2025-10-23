@@ -7,7 +7,6 @@ import type { User } from "@/store/slices/auth/authSlice.types";
 import { useMutation } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { apiLogin } from "../api/auth.api";
-import { saveToken } from "../lib/persistAuth";
 import type { LoginPayload, LoginResponse } from "../model/types";
 
 export function useLoginMutation() {
@@ -16,17 +15,14 @@ export function useLoginMutation() {
 
   return useMutation<LoginResponse, Error, LoginPayload>({
     mutationFn: (payload) => apiLogin(payload),
-    onSuccess: ({ token }) => {
-      saveToken(token);
-
+    onSuccess: (response) => {
       const user: User = {
-        id: 0,
-        name: "Demo User",
-        email: "demo@fakestoreapi.com",
+        id: response.id,
+        name: response.name,
+        email: response.email,
       };
 
       dispatch(login(user));
-
       showToast(t("success"), "success");
     },
     onError: (error) => {

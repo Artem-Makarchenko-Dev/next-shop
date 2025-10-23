@@ -10,14 +10,9 @@ export function useAuthPersist() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const token = Cookies.get("token");
-    if (token) {
-      const user: User = {
-        id: 0,
-        name: "Demo User",
-        email: "demo@fakestoreapi.com",
-      };
-      dispatch(login(user));
+    const user = Cookies.get("user");
+    if (user) {
+      dispatch(login(JSON.parse(user) as User));
     }
   }, [dispatch]);
 }
