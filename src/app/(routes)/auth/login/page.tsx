@@ -6,7 +6,7 @@ export default async function LoginPage() {
   const t = await getTranslations("auth");
 
   return (
-    <section className="max-w-md mx-auto px-6 py-20">
+    <section className="max-w-md px-6 mx-auto py-20">
       <div className="bg-background rounded-2xl shadow-sm p-10 space-y-6">
         <h1 className="text-3xl font-bold text-foreground-900 text-center">{t("login.title")}</h1>
 
