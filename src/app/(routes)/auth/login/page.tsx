@@ -12,7 +12,7 @@ export default async function LoginPage() {
 
         <AuthForm mode="login" />
 
-        <p className="text-sm text-foreground-500 text-center">
+        <p className="text-sm text-center text-foreground-500">
           {t("login.noAccount")}{" "}
           <Link href="/auth/signup" className="text-foreground-900 hover:underline">
             {t("actions.signUp")}
