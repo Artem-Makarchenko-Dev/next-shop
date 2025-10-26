@@ -7,9 +7,19 @@ export interface LoginPayload {
 }
 
 export interface LoginResponse {
-  id: number;
-  name: string;
-  email: string;
+  accessToken: string;
+  refreshToken: string;
+  user: {
+    id: number;
+    name: string;
+    email: string;
+    dateOfBirthday: string;
+    createdAt: string;
+    updatedAt: string;
+    isActive: boolean;
+    roles: string[];
+    refreshToken: string;
+  };
 }
 
 export interface RegisterPayload {

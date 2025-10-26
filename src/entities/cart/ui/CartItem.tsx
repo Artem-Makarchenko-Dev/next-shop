@@ -15,14 +15,14 @@ export default function CartItem({ cartItem }: { cartItem: CartItemType }) {
     <div className="w-full flex justify-between items-center">
       <Image
         src={cartItem.image}
-        alt={cartItem.title}
+        alt={cartItem.name}
         width={64}
         height={64}
         className="object-contain mr-10"
       />
 
       <div className="flex-1">
-        <p className="font-medium">{cartItem.title}</p>
+        <p className="font-medium">{cartItem.name}</p>
         <p className="text-foreground-500 text-sm">${cartItem.price.toFixed(2)}</p>
       </div>
 

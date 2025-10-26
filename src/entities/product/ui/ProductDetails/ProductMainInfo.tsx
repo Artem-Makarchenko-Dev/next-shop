@@ -10,13 +10,13 @@ export function ProductMainInfo({ product }: { product: Product }) {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold text-foreground-900">{product.title}</h1>
-      <RatingStars rate={product.rating.rate} count={product.rating.count} />
+      <h1 className="text-3xl font-bold text-foreground-900">{product.name}</h1>
+      <RatingStars rate={product.ratingRate} count={product.ratingCount} />
       <p className="text-foreground-600 text-md">{product.description}</p>
 
-      <p className="text-sm text-foreground-500 capitalize">
-        {t("category", { category: product.category })}
-      </p>
+      {/*<p className="text-sm text-foreground-500 capitalize">*/}
+      {/*  {t("category", { category: product.category })}*/}
+      {/*</p>*/}
 
       <div className="flex items-center justify-between">
         <span className="text-2xl font-semibold text-foreground-900">

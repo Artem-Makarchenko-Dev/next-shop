@@ -14,12 +14,15 @@ export function useLoginMutation() {
   const t = useTranslations("common.toasts");
 
   return useMutation<LoginResponse, Error, LoginPayload>({
-    mutationFn: (payload) => apiLogin(payload),
-    onSuccess: (response) => {
+    mutationFn: (payload: LoginPayload) => apiLogin(payload),
+    onSuccess: (response: LoginResponse) => {
+      localStorage.setItem("accessToken", response.accessToken);
+      localStorage.setItem("refreshToken", response.refreshToken);
+
       const user: User = {
-        id: response.id,
-        name: response.name,
-        email: response.email,
+        id: response.user.id,
+        name: response.user.name,
+        email: response.user.email,
       };
 
       dispatch(login(user));

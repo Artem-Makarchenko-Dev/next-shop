@@ -1,18 +1,17 @@
 import type { RegisterPayload, RegisterResponse } from "../model/types";
+import {axiosClient} from "@/shared/api/axiosClient";
+import axios from "axios";
 
 export async function apiLogin(payload: { email: string; password: string }) {
-  const res = await fetch("/api/login", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
-
-  if (!res.ok) {
-    const error = await res.json();
-    throw new Error(error.error || "Login failed");
+  try {
+    const { data } = await axiosClient.post("/auth/login", payload);
+    return data;
+  } catch (error: unknown) {
+    if (axios.isAxiosError<{ message: string }>(error)) {
+      throw new Error(error.response?.data?.message ?? "Login failed");
+    }
+    throw new Error("Unexpected error occurred");
   }
-
-  return res.json();
 }
 
 export async function apiRegister(payload: RegisterPayload): Promise<RegisterResponse> {

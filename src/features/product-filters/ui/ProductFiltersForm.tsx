@@ -86,7 +86,7 @@ export default function ProductFiltersForm({ filters, dispatch }: ProductFilters
       >
         {categories.map((category) => (
           <option key={category} value={category}>
-            {t(`categoryOptions.${category}`)}
+            {t(`categoryOptions.${category.toLowerCase()}`)}
           </option>
         ))}
       </select>

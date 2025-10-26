@@ -21,12 +21,12 @@ export function ProductQuickViewModal({ product, onClose }: ProductQuickViewModa
         <div className="space-y-6">
           <Image
             src={product.image}
-            alt={product.title}
+            alt={product.name}
             width={200}
             height={400}
             className="object-contain mx-auto"
           />
-          <h2 className="text-xl font-bold text-foreground-900 mb-4">{product.title}</h2>
+          <h2 className="text-xl font-bold text-foreground-900 mb-4">{product.name}</h2>
           <p className="text-foreground-600 text-sm">{product.description}</p>
           <div className="flex items-center justify-between">
             <div className="text-lg font-semibold text-foreground-900">
