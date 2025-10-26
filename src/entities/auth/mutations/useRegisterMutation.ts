@@ -22,7 +22,6 @@ export function useRegisterMutation() {
         name: response.name,
         email: response.email,
       };
-      saveUser(user);
       dispatch(login(user));
       showToast(t("success"), "success");
     },

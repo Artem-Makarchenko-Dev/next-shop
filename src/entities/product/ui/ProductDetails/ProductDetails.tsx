@@ -25,10 +25,10 @@ export function ProductDetails({ id, initialProduct }: ProductDetailsProps) {
     enabled: !!(id ?? initialProduct?.id),
   });
 
-  const { data: relatedProducts } = useProductsByCategoryQuery(
-    product?.category || initialProduct.category,
-    4,
-  );
+  // const { data: relatedProducts } = useProductsByCategoryQuery(
+  //   product?.category || initialProduct.category,
+  //   4,
+  // );
 
   if (isLoading) return <ProductSkeleton />;
   if (isError || !product)
@@ -36,7 +36,7 @@ export function ProductDetails({ id, initialProduct }: ProductDetailsProps) {
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-6 space-y-16">
-      <Breadcrumbs category={product.category} title={product.title} />
+      {/*<Breadcrumbs category={product.category} title={product.title} />*/}
 
       <div className="bg-background rounded-2xl shadow-sm p-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         <ProductGallery images={Array(4).fill(product.image)}>
@@ -49,7 +49,7 @@ export function ProductDetails({ id, initialProduct }: ProductDetailsProps) {
 
       <ProductReviews />
 
-      {relatedProducts && !!relatedProducts.length && <ProductRelated products={relatedProducts} />}
+      {/*{relatedProducts && !!relatedProducts.length && <ProductRelated products={relatedProducts} />}*/}
     </section>
   );
 }

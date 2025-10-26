@@ -12,7 +12,7 @@ export async function generateProductMetadata(id: string): Promise<Metadata> {
     };
   }
 
-  const title = `${product.title} – MyShop`;
+  const title = `${product.name} – MyShop`;
   const description =
     product.description.length > 160
       ? product.description.slice(0, 157) + "…"
