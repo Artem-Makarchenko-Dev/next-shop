@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { tokenService } from "@/shared/lib/tokenService";
 import {axiosClient} from "@/shared/api/axiosClient";
+import { AppDispatch } from "@/store";
 
 export interface User {
   id: number;
@@ -41,14 +42,14 @@ const authSlice = createSlice({
 export const { login, logout, setUser } = authSlice.actions;
 export const authReducer = authSlice.reducer;
 
-export const checkAuth = () => async (dispatch: any) => {
+export const checkAuth = () => async (dispatch: AppDispatch): Promise<void> => {
   const token = tokenService.getAccess();
   if (!token) return;
 
   try {
     const { data } = await axiosClient.get("/auth/me");
     dispatch(setUser(data));
-  } catch {
+  } catch (error) {
     dispatch(logout());
   }
 };
