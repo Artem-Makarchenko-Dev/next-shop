@@ -13,7 +13,7 @@ function ProductCard({ product }: { product: Product }) {
       <Link href={`/products/${product.id}`} prefetch={true} onClick={(e) => e.stopPropagation()}>
         <Image
           src={product.image}
-          alt={product.title}
+          alt={product.name}
           width={300}
           height={300}
           className={styles.image}
@@ -22,13 +22,12 @@ function ProductCard({ product }: { product: Product }) {
 
       <div className={styles.content}>
         <Link href={`/products/${product.id}`} onClick={(e) => e.stopPropagation()}>
-          <h3 className={styles.title}>{product.title}</h3>
+          <h3 className={styles.title}>{product.name}</h3>
         </Link>
 
         <p className={styles.description}>{product.description}</p>
 
         <div className="mt-auto">
-          <p className={styles.category}>{product.category}</p>
           <div className={styles.bottom}>
             <span className={styles.price}>${product.price}</span>
             <AddToCartIconButton product={product} />

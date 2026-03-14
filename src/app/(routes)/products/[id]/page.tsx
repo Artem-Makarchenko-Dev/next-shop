@@ -5,12 +5,16 @@ import { Loader } from "@/shared/ui/Loader";
 
 const ProductDetailsPageClient = lazy(() => import("@/pages-client/ProductDetailsPageClient"));
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  return generateProductMetadata((await params).id);
+type ProductPageProps = Promise<{ id: string }>
+
+export async function generateMetadata(props: { params: ProductPageProps }) {
+  const params = await props.params;
+  return generateProductMetadata(params.id);
 }
 
-export default async function ProductPage({ params }: { params: { id: string } }) {
-  const id = +(await params).id;
+export default async function ProductPage(props: { params: ProductPageProps }) {
+  const params = await props.params;
+  const id = Number(params.id);
   const product = await fetchProductServer(id, { cache: "no-store" });
 
   return (

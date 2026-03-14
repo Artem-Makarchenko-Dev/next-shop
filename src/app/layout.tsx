@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import React, { StrictMode } from "react";
 import AppProviders from "@/app/providers/AppProviders";
 import { Footer } from "@/widgets/footer/ui/Footer";
 import { Header } from "@/widgets/header/ui/Header";
@@ -8,6 +8,7 @@ import { getLocale, getMessages } from "next-intl/server";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import AuthProvider from "@/app/providers/AuthProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default async function RootLayout({
         <StrictMode>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <AppProviders>
+              <AuthProvider />
               <Header />
               <main className="flex-grow">{children}</main>
               <Footer />

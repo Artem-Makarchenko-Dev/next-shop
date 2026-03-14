@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
+    "dev": "cross-env NODE_ENV=development next dev --turbopack",
+    "build:staging": "cross-env NODE_ENV=staging next build --turbopack",
+    "start:staging": "cross-env NODE_ENV=staging next start -p 3000",
+    "build:prod": "cross-env NODE_ENV=production next build --turbopack",
+    "start:prod": "cross-env NODE_ENV=production next start -p 3000",
     "lint": "next lint",
     "lint-fix": "next lint --fix",
     "format": "prettier --write .",
     "check-format": "prettier --check ."
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
     "@reduxjs/toolkit": "^2.9.0",
     "@tanstack/react-query": "^5.87.4",
     "axios": "^1.12.1",
@@ -35,6 +38,7 @@
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^8.44.0",
     "@typescript-eslint/parser": "^8.44.0",
+    "cross-env": "^10.1.0",
     "eslint": "^9.35.0",
     "eslint-config-next": "15.5.3",
     "eslint-config-prettier": "^10.1.8",
@@ -42,6 +46,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.2.0",
     "prettier": "^3.6.2",
+    "prisma": "^6.16.2",
     "sass": "^1.92.1",
     "tailwindcss": "^4",
     "typescript": "^5"

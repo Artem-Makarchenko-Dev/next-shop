@@ -32,7 +32,7 @@ export function CheckoutSummary() {
             className="flex justify-between text-sm text-foreground-700 border-b pb-1"
           >
             <span>
-              {item.title} × {item.quantity}
+              {item.name} × {item.quantity}
             </span>
             <span>${(item.price * item.quantity).toFixed(2)}</span>
           </li>

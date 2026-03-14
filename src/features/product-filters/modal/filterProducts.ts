@@ -6,11 +6,11 @@ export function filterProducts(products: Product[] = [], filters: FiltersState):
 
   if (filters.search.trim()) {
     const term = filters.search.toLowerCase();
-    list = list.filter((p) => p.title.toLowerCase().includes(term));
+    list = list.filter((p) => p.name.toLowerCase().includes(term));
   }
 
   if (filters.category !== "all") {
-    list = list.filter((p) => p.category === filters.category);
+    list = list.filter((p) => p);
   }
 
   if (filters.sort === "asc") {
