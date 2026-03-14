@@ -13,7 +13,7 @@ function ProductCard({ product }: { product: Product }) {
       <Link href={`/products/${product.id}`} prefetch={true} onClick={(e) => e.stopPropagation()}>
         <Image
           src={product.image}
-          alt={product.name}
+          alt={product.name || "Product image"}
           width={300}
           height={300}
           className={styles.image}
