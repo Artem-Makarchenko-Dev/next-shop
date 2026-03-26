@@ -1,218 +1,204 @@
-# My pet-project with using React.js and Next.js
+# Shop Kit
 
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://vercel.com/)
+Modern e-commerce frontend designed to demonstrate scalable UI architecture, component reusability, and real-world client-side patterns.
+
+## Live Demo
+
+The application is deployed on Vercel and can be accessed here:
+
+https://artem-makarchenko-next-shop.vercel.app/
+
+Explore full UI flows: product catalog, product details, cart, and checkout (authentication required for cart and order flow).
+
+## TL;DR
+
+- E-commerce frontend built with Next.js (App Router)
+- Feature-based architecture for scalable and maintainable UI
+- Auth-gated cart and checkout flow (real-world constraint)
+- Global state via Redux Toolkit + server state via React Query
+- Supports i18n (EN/UK) and theming (dark/light)
+
+## Architecture
+
+### High-level
+
+UI → State → Data layer
+
+- UI layer handles rendering and user interaction
+- State layer manages global and local state
+- Data layer handles API requests and data fetching
 
 ---
 
-## 📑 Table of Contents
+### Structure
 
-- [🚀 Deployment](#-deployment)
-- [🖼️ Screenshots](#-screenshots)
-- [📖 Project Overview](#-project-overview)
-- [📂 Project Structure](#-project-structure)
-- [⚡ Features](#-features)
-- [🌍 Internationalization Example](#-internationalization-example)
-- [🌟 React & Next.js Features & Examples in This Project](#-react--nextjs-features--examples-in-this-project)
-  - [⚛️ React](#️-react)
-  - [⚡ Next.js](#-nextjs)
-- [🛠️ Getting Started](#️-getting-started)
-- [📜 License](#-license)
+The project follows a feature-based architecture:
+
+- `app/` — Next.js App Router (pages and layouts)
+- `features/` — business logic and feature modules (cart, filters, auth)
+- `entities/` — domain models (product, user, review)
+- `shared/` — reusable UI components, hooks, utilities
+- `widgets/` — page-level UI blocks (header, footer, sections)
+- `messages/` — localization dictionaries
 
 ---
 
-## 🚀 Deployment
+### State & Data
 
-The project is deployed on **Vercel**:
-
-[![Demo on Vercel](https://vercel.com/button)](https://artem-makarchenko-next-shop.vercel.app/)
+- Global state managed with Redux Toolkit
+- Server state handled via React Query
+- Local state managed with React hooks
 
 ---
 
-## 🖼️ Screenshots
+### Rendering Strategy
+
+- SSR / SSG for pages where applicable
+- CSR for interactive parts (cart, filters, auth)
+- React Query used for data fetching and hydration
+
+## Key Patterns
+
+- Feature-based architecture for scalability and separation of concerns
+- Clear separation between UI, state, and data layers
+- Global state management with Redux Toolkit
+- Server state handling with React Query
+- Reusable component design via shared and entity layers
+- Composition over inheritance in UI components
+
+## User Flow
+
+### Main Flow
+
+1. User opens the application
+2. Browses product catalog
+3. Opens product details page
+4. Adds items to cart
+5. Proceeds to cart and updates items
+6. Completes checkout form
+7. Submits order
+
+---
+
+### Additional Flows
+
+- User switches language (EN / UK)
+- User toggles theme (dark / light)
+- User browses static pages (FAQ, policies)
+
+## Demo Flow
+
+1. Open the application
+2. (If needed) Sign up or log in
+3. Browse product catalog
+4. Open any product page
+5. Add item to cart (requires authentication)
+6. Go to cart page
+7. Proceed to checkout
+8. Fill in checkout form and complete order
+
+## Design Decisions
+
+- Next.js (App Router) chosen for scalable routing and hybrid rendering (SSR/CSR)
+- Feature-based architecture used to improve maintainability and separation of concerns
+- Redux Toolkit used for predictable global state management
+- React Query used for server state and data fetching
+- next-intl used for internationalization (EN / UK support)
+- Tailwind CSS used for rapid UI development and theming
+- Authentication required for cart and checkout to reflect real-world e-commerce constraints
+
+## Production Considerations
+
+- SSR / CSR balance optimized for performance and UX
+- React Query used for caching, deduplication, and request management
+- Feature-based architecture enables scaling across teams
+- Separation of concerns allows independent evolution of UI, state, and data layers
+- Auth-gated actions (cart, checkout) reflect real-world business constraints
+
+## Trade-offs
+
+- No real backend integration (mocked / simplified API layer)
+- Payments and order processing are simulated
+- Focus is on frontend architecture rather than full product completeness
+
+## Tech Stack
+
+Core:
+
+- Next.js (App Router)
+- React
+- TypeScript
+
+State & Data:
+
+- Redux Toolkit
+- React Query
+
+UI & Styling:
+
+- Tailwind CSS
+
+Infrastructure:
+- Vercel (deployment)
+
+Other:
+- next-intl (i18n)
+
+## Screenshots
 
 ### Home Page
 
-[![Home Page](/public/screenshots/home.png)](/public/screenshots/home.png)
+Main product catalog with filtering and navigation.
+
+![Home Page](/public/screenshots/home.png)
+
+---
 
 ### Product Details
 
-[![Product Details](/public/screenshots/product-details.png)](/public/screenshots/product-details.png)
+Detailed product view with gallery, description, and actions.
 
-### Cart Page
-
-[![Cart Page](/public/screenshots/cart.png)](/public/screenshots/cart.png)
+![Product Details](/public/screenshots/product-details.png)
 
 ---
 
-## 📖 Project Overview
+### Cart
 
-Next-Shop is a demo **e-commerce web store** built as a pet-project using **React.js** and **Next.js (App Router)**.  
-The goal was to showcase modern frontend practices with:
+Cart management with item updates and total calculation.
 
-- 🌗 **Dark/Light theme switcher**
-- 🌍 **Internationalization** (English + Ukrainian with `next-intl`)
-- 🛒 **Shopping cart with persistence**
-- 📦 **Product catalog and details pages**
-- ✅ **Checkout with form validation**
-- 🔐 **Auth forms (login/signup)**
-- 📑 **Static informational pages** (FAQs, Privacy Policy, Terms of Service, etc.)
-- 🚀 **Deployment on Vercel**
+![Cart Page](/public/screenshots/cart.png)
 
----
+## Getting Started
 
-## 📂 Project Structure
-
-```
-/app                 → Next.js App Router pages (server & client)
-/pages-client        → Client-only page components
-/shared              → Shared UI components, contexts, utilities
-/entities            → Business entities (product, review, user, etc.)
-/features            → Feature modules (cart, filters, theme, i18n)
-/widgets             → Page-level UI blocks (Header, Footer, Hero, etc.)
-/messages            → Localization dictionaries (EN, UK)
-public/              → Static assets
-styles/              → Global CSS, Tailwind theme variables
-tailwind.config.ts   → Tailwind configuration
-next.config.ts       → Next.js configuration
-```
-
----
-
-## ⚡ Features
-
-- **Responsive design** with TailwindCSS
-- **Dark/Light mode** with `ThemeContext`
-- **Multi-language support** (EN/UK) with `next-intl`
-- **Cart functionality** (add, update, remove, total calculation)
-- **Checkout flow** with validation and payment method select
-- **Authentication**: signup & login forms
-- **Product pages** with gallery, related products, reviews
-- **Reusable UI components** (buttons, tags, modals, loaders, tooltips)
-- **Static info pages**: FAQs, Shipping & Returns, Privacy Policy, Terms of Service, Contact
-- **Deployment on Vercel** with build optimization
-
----
-
-## 🌍 Internationalization Example
-
-- `messages/en/*.json`
-- `messages/uk/*.json`
-
-Usage in code:
-
-```tsx
-import { useTranslations } from "next-intl";
-
-const t = useTranslations("cart");
-return <button>{t("actions.checkout")}</button>;
-```
-
----
-
-## 🌟 React & Next.js Features & Examples in This Project
-
-### ⚛️ React
-
-| Feature                                  | Example File                                                     |
-| ---------------------------------------- | ---------------------------------------------------------------- |
-| **JSX, Components, Props**               | `Header.tsx`, `ProductCard.tsx`                                  |
-| **Events (onClick, onChange, onSubmit)** | `AuthForm.tsx`, `CartItem.tsx`                                   |
-| **Conditional Rendering**                | `CartWidget.tsx`, `AuthButton.tsx`                               |
-| **List Rendering**                       | `ProductsGrid.tsx`, `Footer.tsx`                                 |
-| **Fragments**                            | `ProductsPageClient.tsx`                                         |
-| **StrictMode**                           | `layout.tsx`                                                     |
-| **useState**                             | `ProductQuickViewModal.tsx`, `ProductReviews.tsx`                |
-| **useEffect**                            | `TooltipProvider.tsx`, `ThemeContext.tsx`                        |
-| **useContext**                           | `ThemeToggle.tsx`, `LocaleSwitcher.tsx`                          |
-| **useReducer**                           | `CheckoutForm.tsx`, `AuthForm.tsx`, `ProductsPageClient.tsx`     |
-| **useMemo / useCallback**                | `ProductFiltersForm.tsx`, `ProductsPageClient.tsx`               |
-| **useRef**                               | `TooltipProvider.tsx`, `TextInput.tsx`                           |
-| **forwardRef / useImperativeHandle**     | `TextInput.tsx` (focus)                                          |
-| **Custom Hooks**                         | `useCartPersist.ts`, `useServerLocale.ts`, `useProductsQuery.ts` |
-| **React.memo**                           | `ProductCard.tsx`                                                |
-| **Selectors + memoization**              | `cartSlice.selectors.ts`, `authSlice.selectors.ts`               |
-| **API requests (React Query)**           | `useProductsQuery.ts`, `useProductQuery.ts`                      |
-| **Cookies / localStorage**               | `useCartPersist.ts`, `ThemeContext.tsx`                          |
-| **SSR hydration with React Query**       | `ProductsPageClient.tsx`                                         |
-| **Redux Toolkit (state management)**     | `cartSlice.ts`, `authSlice.ts`                                   |
-| **Redux selectors**                      | `cartSlice.selectors.ts`, `authSlice.selectors.ts`               |
-| **Portals**                              | `Modal.tsx`, `ProductQuickViewModal.tsx`                         |
-| **ErrorBoundary**                        | `ErrorBoundary.tsx`                                              |
-| **Suspense + lazy**                      | `CartPageClient.tsx`, `CheckoutPageClient.tsx`                   |
-| **Loader / Skeleton**                    | `Loader.tsx`, `ProductSkeleton.tsx`                              |
-| **Error handling (refetch, retry)**      | `ErrorState.tsx`                                                 |
-| **Tooltip (Render Props)**               | `TooltipProvider.tsx`, `CartWidget.tsx`                          |
-| **HOC (withLoading)**                    | `withLoading.tsx`                                                |
-| **Compound Components**                  | `ProductGallery.tsx`                                             |
-| **Uncontrolled components**              | `TextInput.tsx`                                                  |
-
----
-
-### ⚡ Next.js
-
-| Feature                                   | Example File                                                             |
-| ----------------------------------------- | ------------------------------------------------------------------------ |
-| **App Router (Server Components)**        | `/app/page.tsx`, `/app/(routes)/products/[id]/page.tsx`                  |
-| **Client Components (`"use client"`)**    | `CartWidget.tsx`, `ThemeToggle.tsx`                                      |
-| **Dynamic Routes**                        | `/app/(routes)/products/[id]/page.tsx`                                   |
-| **Catch-all Routes**                      | `/app/(routes)/info/[[...slug]]/page.tsx`                                |
-| **notFound()**                            | `ProductDetailsPageClient.tsx`                                           |
-| **Link Prefetching**                      | `<Link>` in `HeaderNav.tsx`                                              |
-| **CSR (Client-Side Rendering)**           | `useProductsQuery.ts`, `useProductQuery.ts`                              |
-| **SSR (Server-Side Rendering)**           | `product/[id]/page.tsx`                                                  |
-| **SSG (Static Site Generation)**          | `ContactPage.tsx`, `AboutPage.tsx`                                       |
-| **ISR (Incremental Static Regeneration)** | `products/page.tsx` with `revalidate`                                    |
-| **React Query + SSR Hydration**           | `ProductsPageClient.tsx`                                                 |
-| **Middleware (auth guard)**               | `middleware.ts`                                                          |
-| **Layouts**                               | `layout.tsx` (global), nested layouts                                    |
-| **next/font**                             | `layout.tsx` (Geist, Geist_Mono)                                         |
-| **next/image**                            | `ProductCard.tsx`, `ProductGallery.tsx`                                  |
-| **next/script**                           | `layout.tsx` (Google Analytics)                                          |
-| **Tailwind CSS (themes)**                 | `globals.css`, `tailwind.config.ts`                                      |
-| **Global Styles**                         | `globals.css`                                                            |
-| **CSS Modules / SCSS**                    | `ProductCard.module.scss`                                                |
-| **Suspense / lazy**                       | `CartPageClient.tsx`, `CheckoutPageClient.tsx`                           |
-| **Prefetch / caching**                    | Links with ISR/SSG                                                       |
-| **SEO: metadata**                         | `layout.tsx`, `product/[id]/page.tsx`                                    |
-| **OpenGraph / Twitter Metadata**          | `product/[id]/page.tsx`                                                  |
-| **Favicon**                               | `/public/favicon.ico`                                                    |
-| **Deployment on Vercel**                  | `vercel.json`, `next.config.ts`                                          |
-| **Internationalization (next-intl)**      | `Header.tsx`, `Footer.tsx`, `/messages/en/*.json`, `/messages/uk/*.json` |
-| **Dark/Light Theme Toggle**               | `ThemeContext.tsx`, `ThemeToggle.tsx`                                    |
-
----
-
-## 🛠️ Getting Started
-
-### 1. Clone the repo
+### Clone repository
 
 ```bash
-git clone https://github.com/Artem-Makarchenko-Dev/next-shop.git
-cd next-shop
+git clone https://github.com/Artem-Makarchenko-Dev/shop-kit-web.git
+cd shop-kit-web
 ```
 
-### 2. Install dependencies
+### Install dependencies
 
 ```bash
-npm install
-# or
 yarn install
 ```
 
-### 3. Run development server
+### Run development server
 
 ```bash
-npm run dev
+yarn dev
 ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
+Application will be available at http://localhost:3000
 
----
+## About
 
-## 📜 License
+This project was built to demonstrate production-level frontend architecture and real-world application patterns.
 
-This project is created as a personal **pet-project** for learning purposes.  
-Feel free to fork and experiment!
+Focus areas:
+
+- scalable UI architecture
+- state management and data flow
+- feature-based project structure
+- performance and rendering strategies
+- production-ready frontend practices

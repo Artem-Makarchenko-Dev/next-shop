@@ -1,6 +1,6 @@
 {
-  "name": "next-shop",
-  "version": "0.1.0",
+  "name": "shop-kit-web",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev --turbopack",
