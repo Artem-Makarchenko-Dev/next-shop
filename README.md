@@ -4,9 +4,7 @@ Modern e-commerce frontend designed to demonstrate scalable UI architecture, com
 
 ## Live Demo
 
-The application is deployed on Vercel and can be accessed here:
-
-https://artem-makarchenko-next-shop.vercel.app/
+The application is deployed on Vercel and can be accessed here: [Open Application](https://artem-makarchenko-shop-kit-web.vercel.app)
 
 Explore full UI flows: product catalog, product details, cart, and checkout (authentication required for cart and order flow).
 
